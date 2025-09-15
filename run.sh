@@ -23,7 +23,7 @@ if [ ! -d "distro-source/.git" ]; then
     echo "'distro-source' is not a git repository or does not exist."
     echo "Cloning a fresh copy from ${DISTRO_REPO_URL}..."
     # Remove any existing non-git directory to ensure a clean start
-    rm -rfi distro-source
+    rm -rf distro-source
     # Clone the repo directly into the 'distro-source' directory
     git clone "$DISTRO_REPO_URL" distro-source
 else
