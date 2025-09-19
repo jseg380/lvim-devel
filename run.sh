@@ -83,6 +83,9 @@ DOCKER_ARGS+=(-v "$(pwd)/distro-source:/home/developer/.local/share/lunarvim/lvi
 # Mount the user's test configuration
 DOCKER_ARGS+=(-v "$(pwd)/user-config:/home/developer/.config/lvim")
 
+# Mount example files for testing LSP capabilities
+DOCKER_ARGS+=(-v "$(pwd)/examples:/home/developer/examples")
+
 # --- Display Server Detection and Configuration ---
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     echo "Wayland session detected. Configuring for Wayland."

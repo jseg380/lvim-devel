@@ -60,9 +60,10 @@ WORKDIR /home/developer
 
 # 1. Create the entire directory structure the distro expects.
 # These will serve as mount points for our live development.
+RUN mkdir -p /home/developer/.local/bin
 RUN mkdir -p /home/developer/.local/share/lunarvim/lvim
 RUN mkdir -p /home/developer/.config/lvim
-RUN mkdir -p /home/developer/.local/bin
+RUN mkdir -p /home/developer/examples
 
 # 2. Copy the launcher script into the container and make it executable.
 COPY --chown=developer:developer ./assets/lvim-launcher.sh /home/developer/.local/bin/lvim
