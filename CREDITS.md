@@ -1,0 +1,1 @@
+- Sample files located in `examples/` obtained from [github-linguist repo](https://github.com/github-linguist/linguist).
