@@ -18,7 +18,7 @@ RUN apt-get update && \
     git cmake ninja-build gettext libtool libtool-bin autoconf automake pkg-config \
     unzip doxygen build-essential \
     # Utilities & GUI libs
-    curl fontconfig libegl1 libgbm1 ripgrep fd-find \
+    curl fontconfig libegl1 libgbm1 ripgrep fd-find sudo \
     # Terminal Emulators
     alacritty \
     kitty \
@@ -54,7 +54,8 @@ RUN mkdir -p /usr/local/share/fonts/truetype/nerd-fonts && \
 # STAGE 5: Create User and Distro Environment
 # This is the key new stage.
 #==============================================================================
-RUN useradd -m -s /bin/bash developer
+RUN echo "developer ALL=(ALL:ALL) ALL" > /etc/sudoers.d/developer
+RUN useradd -m -s /bin/bash developer && passwd -d developer
 USER developer
 WORKDIR /home/developer
 
